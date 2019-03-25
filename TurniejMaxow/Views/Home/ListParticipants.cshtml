@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FormResponse>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Uczestnicy</title>
+</head>
+<body>
+    <div class="container">
+       
+        <h4 style="text-align:center; padding-bottom:15px;">Lista startujących zawodników:</h4>
+        <div class="card-deck">
+        @foreach (FormResponse formResponse in Model)
+        {
+        <div class="card" style="max-width:305px; width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align:center;">@formResponse.FirstName</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Wiek: @formResponse.Age</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Wzrost: @formResponse.Height</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Waga: @formResponse.Weight</h6>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" style="text-align:center;">
+                        Przysiad (obecnie/cel):
+                        <p>@formResponse.CurrSquat / @formResponse.GoalSquat</p>
+                    </li>
+                    <li class="list-group-item" style="text-align:center;">
+                        Martwy ciąg (obecnie/cel):
+                        <p>@formResponse.CurrDeadlift / @formResponse.GoalDeadlift</p>
+                    </li>
+                    <li class="list-group-item" style="text-align:center;">
+                        Wyciskanie leżąc (obecnie/cel):
+                        <p>@formResponse.CurrBench / @formResponse.GoalBench</p>
+                    </li>
+                    <li class="list-group-item" style="text-align:center;">
+                        Wyciskanie stojąc (obecnie/cel):
+                        <p>@formResponse.CurrOhp / @formResponse.GoalOhp</p>
+                    </li>
+                </ul>
+                <div class="card-footer text-muted" style="text-align:center; background-color:lightgray;">
+                    @Math.Abs(formResponse.Signed.Subtract(DateTime.Today).Days) days ago
+                </div>
+            </div>
+        </div>
+        }
+
+    </div>
+        </div>
+</body>
+</html>
