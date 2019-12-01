@@ -1,0 +1,97 @@
+﻿@model FormResponse
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sign in!</title>
+ 
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Formularz</h4></div>
+        <div class="panel-body">
+            <form class="p-a-1" asp-action="SignForm" method="post">
+
+                <div class="row">
+                    <div div class="col-md-6 mb-3">
+                        <label asp-for="FirstName">Imię:</label>
+                        <input class="form-control" asp-for="FirstName" />
+                        <div><span asp-validation-for="FirstName" class="text-danger"></span></div>
+                    </div>
+                    <div div class="col-md-6 mb-3">
+                        <label asp-for="LastName">Nazwisko:</label>
+                        <input class="form-control" asp-for="LastName" />
+                        <div><span asp-validation-for="LastName" class="text-danger"></span></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Adres email:</label>
+                    <input class="form-control" asp-for="Email" />
+                    <div><span asp-validation-for="Email" class="text-danger"></span></div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone">Numer telefonu:</label>
+                    <input class="form-control" asp-for="Phone" />
+                    <div><span asp-validation-for="Phone" class="text-danger"></span></div>
+                </div>
+                <div class="row">
+                    <div div class="col-md-4 mb-3">
+                        <label asp-for="Age">Wiek</label>
+                        <input class="form-control" asp-for="Age" />
+                        <div><span asp-validation-for="Age" class="text-danger"></span></div>
+                    </div>
+                    <div div class="col-md-4 mb-3">
+                        <label asp-for="Height">Wzrost</label>
+                        <input class="form-control" asp-for="Height" />
+                        <div><span asp-validation-for="Height" class="text-danger"></span></div>
+                    </div>
+                    <div div class="col-md-4 mb-3">
+                        <label asp-for="Weight">Waga:</label>
+                        <input class="form-control" asp-for="Weight" />
+                        <div><span asp-validation-for="Weight" class="text-danger"></span></div>
+                    </div>
+                </div>
+                <div class="text-center" style="padding-bottom:20px;">
+                    <h4>Wyniki siłowe</h4>
+                </div>
+                <div class="form-group">
+                    <table class="table table-sm table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Przysiad</th>
+                                <th>Martwy ciąg</th>
+                                <th> Wyciskanie leżąc</th>
+                                <th>Wyciskanie stojąc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Obecny wynik</td>
+                                <td><input class="form-control" asp-for="CurrSquat" /></td>
+                                <td><input class="form-control" asp-for="CurrDeadlift" /></td>
+                                <td><input class="form-control" asp-for="CurrBench" /></td>
+                                <td><input class="form-control" asp-for="CurrOhp" /></td>
+                            </tr>
+                            <tr>
+                                <td>Cel</td>
+                                <td><input class="form-control" asp-for="GoalSquat" /></td>
+                                <td><input class="form-control" asp-for="GoalDeadlift" /></td>
+                                <td><input class="form-control" asp-for="GoalBench" /></td>
+                                <td><input class="form-control" asp-for="GoalOhp" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">
+                        Zapisz się!
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
